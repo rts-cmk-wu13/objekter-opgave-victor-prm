@@ -1,0 +1,131 @@
+@import url(./fonts.css);
+
+:root{
+    --max-width: 75rem;
+    --universal-gap: 1rem;
+    --universal-gap-double: calc(var(--universal-gap)*2);
+    --universal-gap-half: calc(var(--universal-gap)/2);
+
+    --color-primary: #F78065;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: MontserratRegular, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--universal-gap-double);
+    gap: 8rem;
+    padding-bottom: 8rem;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    max-width: var(--max-width);
+    justify-self: center;
+}
+
+
+h1,h2,h3,h4,h5,h6{
+    font-family:  Merriweather700, Georgia, 'Times New Roman', Times, serif
+}
+
+button{
+    width: fit-content;
+}
+
+button, a{
+    cursor: pointer;
+}
+
+.header{
+    position: relative;
+    display: block;
+}
+
+.header-image-image{
+    width: 100%;
+}
+
+.header-text-container{
+    position: relative;
+    max-width: 28rem;
+    min-width: 16rem;
+    transform: translateY(-30%);
+    background-color: white;
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    padding: var(--universal-gap-double);
+    margin: var(--universal-gap) var(--universal-gap-double);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--universal-gap);
+}
+
+.header-highlight{
+    color: var(--color-primary);
+}
+
+.header-text-cta-button{
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: var(--universal-gap-half) var(--universal-gap-double)
+}
+
+.section-headline{
+    margin-bottom: var(--universal-gap-double);
+}
+
+.services-content-container, .advantages-content-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--universal-gap-double);
+}
+
+.facilities-content-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: var(--universal-gap-double);
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    gap: var(--universal-gap);
+}
+
+.card-illustration-container{
+    height: 8rem;
+}
+
+.card-illustration{
+    height: 100%;
+}
+
+.card-copy{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.card-link{
+    color: #F78065;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.card-illustration-container__facilities, .card-illustration-container__advantages{
+    height: 6rem;
+}
+
+.card-illustration__facilities, .card-illustration__advantages{
+    height: 25%;
+}
