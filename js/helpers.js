@@ -38,11 +38,21 @@ function createLinkListCard(headline, list, cssSelector, cssModifier){
     </div>`
 }
 
+function createLegalSection(copyright, list, cssModifier){
+    document.querySelector('.footer').innerHTML += `
+    <div class="legal-container">
+        <small class="legal-container-copyright">${copyright}</small>
+        <ul class="linklist-list linklist-list__${cssModifier}">
+            ${createLinkList(list)}
+        </ul>
+    </div>`
+}
+
 function createLinkList(list){
     let eles = ""
     if(list){
         list.forEach(item => {
-            eles += (`<li class="linklist-item">${item.linktext}</li>`)
+            eles += (`<li class="linklist-item"><a href="" class="linklist-item-link">${item.linktext}</a></li>`)
         })
     }
     return eles;

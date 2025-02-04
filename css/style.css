@@ -27,11 +27,6 @@ main {
     padding-bottom: 8rem;
 }
 
-footer{
-    background-color: #F7F7F7;
-    padding: var(--universal-gap-double) var(--universal-gap-double);
-
-}
 
 .wrapper {
     display: flex;
@@ -70,6 +65,7 @@ button {
 button,
 a {
     cursor: pointer;
+    text-decoration: none;
 }
 
 .header {
@@ -215,7 +211,7 @@ a {
     position: fixed;
     height: 3rem;
     width: calc(100% - 2*var(--universal-gap-double));
-    max-width: calc(var(--max-width) - 2*var(--universal-gap-double));
+    max-width: calc(var(--max-width) - 2.5*var(--universal-gap-double));
     top: 0;
     margin: var(--universal-gap-double);
     z-index: 10;
@@ -225,6 +221,7 @@ a {
     align-items: center;
     padding: 0 var(--universal-gap-half);
     border-radius: 100rem;
+    
 }
 
 .icon-button__floating-menu-button,
@@ -233,6 +230,7 @@ a {
     height: var(--universal-gap-double);
     padding: 0 0;
     border-radius: 100rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2)
 }
 
 .floating-navbar-fadein {
@@ -242,21 +240,57 @@ a {
 .linklist, .linklist-list{
     display: flex;
     flex-direction: column;
-    gap: var(--universal-gap-half);
+    gap: var(--universal-gap-double);
 }
 
 .linklist-item{
     list-style: none;
 }
 
+.linklist-item-link{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+footer{
+    background-color: #F7F7F7;
+    padding: var(--universal-gap-double) var(--universal-gap-double);
+
+}
+
+.footer-headline__inline{
+    font-size: 3rem;
+}
+
+.footer-copy__inline{
+    font-size: 1.5rem;
+    color:black;
+    font-weight: 700;
+}
+
+.legal-container{
+    display: flex;
+    justify-content: space-between;
+    border-top: solid 1px rgba(0, 0, 0, 0.2);
+    margin-top: 4rem;
+    padding-top: var(--universal-gap-double);
+}
+
+.linklist-list__legal{
+    display: inline-flex;
+    flex-direction: row;
+    gap: var(--universal-gap-double);
+}
+
 @keyframes blur-in {
     from {
         background-color: rgba(0, 0, 0, 0);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
         backdrop-filter: blur(0px);
     }
 
     to {
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);
         backdrop-filter: blur(8px);
     }
 }
