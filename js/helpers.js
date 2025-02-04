@@ -1,7 +1,3 @@
-function highlightText(originalStr, highlightStr) {
-    return originalStr.replace(highlightStr, `<span class="header-highlight">${highlightStr}</span>`);
-}
-
 function createContentSection(sectionHeadline, cssSelector) {
     let contentDestination = `${cssSelector}-content-container`
     if (sectionHeadline) {
@@ -11,7 +7,7 @@ function createContentSection(sectionHeadline, cssSelector) {
     document.querySelector(`.${cssSelector}`).innerHTML += `<div class="${contentDestination}"></div>`;
 }
 
-function createContentSection__InlineHeader(sectionHeadline, sectionCopy, buttonIconSrc, cssSelector) {
+function createContentSection__InlineHeader(sectionHeadline, sectionCopy, buttonTxt, buttonIconSrc, cssSelector) {
     let contentDestination = `${cssSelector}-content-container`;
     document.querySelector(`.${cssSelector}`).innerHTML += `<div class="${contentDestination}"></div>`;
     if (sectionHeadline) {
@@ -19,14 +15,38 @@ function createContentSection__InlineHeader(sectionHeadline, sectionCopy, button
         <div class="${cssSelector}-section__inline">
             <h2 class="${cssSelector}-headline__inline section-headline">${sectionHeadline}</h2>
             <p class="${cssSelector}-copy__inline section-copy">${sectionCopy}</p>
-            ${createIconButton("Start", buttonIconSrc, cssSelector)}
+            ${createIconButton(buttonTxt, buttonIconSrc, cssSelector)}
         </div>`
     }
-
 }
 
 function createIconButton(buttonText, buttonIconSrc, cssSelector) {
-    return `<button class="icon-button icon-button__${cssSelector}"><i class="icon-button-wrapper icon-button-wrapper__${cssSelector}-"><img src="${buttonIconSrc}" alt="button icon" class="icon-button-img icon-button-img__${cssSelector}-"></i>${buttonText}</button>`
+    if(buttonText || buttonIconSrc){
+        return `<button class="icon-button icon-button__${cssSelector}"><i class="icon-button-wrapper icon-button-wrapper__${cssSelector}-"><img src="${buttonIconSrc}" alt="button icon" class="icon-button-img icon-button-img__${cssSelector}-"></i>${buttonText}</button>`
+    }
+    return "";
+}
+
+function createLinkListCard(headline, list, cssSelector){
+    let contentDestination = `${cssSelector}-content-container`;
+    document.querySelector(`.${contentDestination}`).innerHTML += `
+    <div class="">
+        <h4>${headline}</h4>
+        <ul>
+            ${createLinkList(list)}
+        </ul>
+    </div>`
+}
+
+function createLinkList(list){
+    let eles = ""
+    if(list){
+        list.forEach(item => {
+            console.log(item.linktext)
+            eles += (`<li>${item.linktext}</li>`)
+        })
+    }
+    return eles
 }
 
 function createLink(linktext, cssSelector) {
@@ -34,6 +54,10 @@ function createLink(linktext, cssSelector) {
         return `<p><a href="#" class="card-link card-link__${cssSelector}">${linktext}</a></p>`
     }
     return "";
+}
+
+function highlightText(originalStr, highlightStr) {
+    return originalStr.replace(highlightStr, `<span class="header-highlight">${highlightStr}</span>`);
 }
 
 function blurFloatingNavbar(objThreshold) {

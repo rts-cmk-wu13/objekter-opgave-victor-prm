@@ -27,6 +27,12 @@ main {
     padding-bottom: 8rem;
 }
 
+footer{
+    background-color: #F7F7F7;
+    padding: var(--universal-gap-double) var(--universal-gap-double);
+
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -114,7 +120,8 @@ a {
 }
 
 .facilities-content-container,
-.sites-content-container {
+.sites-content-container,
+.footer-content-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
     gap: var(--universal-gap-double);
@@ -208,6 +215,7 @@ a {
     position: fixed;
     height: 3rem;
     width: calc(100% - 2*var(--universal-gap-double));
+    max-width: calc(var(--max-width) - 2*var(--universal-gap-double));
     top: 0;
     margin: var(--universal-gap-double);
     z-index: 10;

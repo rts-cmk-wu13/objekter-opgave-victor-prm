@@ -73,14 +73,21 @@ function populateFacilities(sectionHeadline, cssSelector) {
     facilities.options.forEach(facility => createCard(facility.headline, facility.text, "Show me more", facility.icon, cssSelector));
 }
 
-function populateSites(sectionHeadline, cssSelector) {
-    createContentSection__InlineHeader(sectionHeadline, sites.text, sites.btnicon, cssSelector);
+function populateSites(cssSelector) {
+    createContentSection__InlineHeader(sites.headline, sites.text, "Start", sites.btnicon, cssSelector);
     sites.places.forEach(site => createCard(site.name, site.city, "Visit the site", site.img, cssSelector));
 }
 
 function populateAdvantages(sectionHeadline, cssSelector) {
     createContentSection(sectionHeadline, cssSelector);
     advantages.forEach(advantage => createCard(advantage.headline, advantage.text, "", advantage.icon, cssSelector));
+}
+
+function populateFooter(cssSelector) {
+    createContentSection__InlineHeader(footer.companyText.companyName, footer.companyText.slogan, "", "", cssSelector);
+    createLinkListCard(footer.discover.headline, footer.discover.links,cssSelector);
+    createLinkListCard(footer.manager.headline, footer.manager.links,cssSelector);
+    createLinkListCard(footer.assistance.headline, footer.assistance.links,cssSelector);
 }
 
 function createCard(headline, text, linktext, illustration, cssSelector) {
@@ -102,8 +109,9 @@ function populateAll() {
     populateHeader(hero.headline, hero.copy, hero.image);
     populateServices("", "services");
     populateFacilities(facilities.headline, "facilities");
-    populateSites(sites.headline, "sites");
+    populateSites("sites");
     populateAdvantages("Our Advantages", "advantages");
+    populateFooter("footer");
 }
 
 populateAll();
