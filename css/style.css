@@ -1,32 +1,33 @@
 @import url(./fonts.css);
 
-:root{
+:root {
     --max-width: 75rem;
     --universal-gap: 1rem;
     --universal-gap-double: calc(var(--universal-gap)*2);
     --universal-gap-half: calc(var(--universal-gap)/2);
 
     --color-primary: #F78065;
+    --card-box-shadow: 0 0 6rem rgba(0, 0, 0, 0.1);
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     font-family: MontserratRegular, Verdana, Geneva, Tahoma, sans-serif;
 }
 
-main{
+main {
     display: flex;
     flex-direction: column;
     padding: 0 var(--universal-gap-double);
-    gap: 8rem;
+    gap: 4rem;
     padding-bottom: 8rem;
 }
 
-.wrapper{
+.wrapper {
     display: flex;
     flex-direction: column;
     max-width: var(--max-width);
@@ -34,34 +35,53 @@ main{
 }
 
 
-h1,h2,h3,h4,h5,h6{
-    font-family:  Merriweather700, Georgia, 'Times New Roman', Times, serif
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Merriweather700, Georgia, 'Times New Roman', Times, serif
 }
 
-button{
+h2 {
+    font-size: 2.25rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+button {
     width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--universal-gap-half);
+    font-weight: 700;
 }
 
-button, a{
+button,
+a {
     cursor: pointer;
 }
 
-.header{
+.header {
     position: relative;
     display: block;
 }
 
-.header-image-image{
+.header-image-image {
     width: 100%;
 }
 
-.header-text-container{
+.header-text-container {
     position: relative;
     max-width: 28rem;
     min-width: 16rem;
     transform: translateY(-30%);
     background-color: white;
-    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--card-box-shadow);
     padding: var(--universal-gap-double);
     margin: var(--universal-gap) var(--universal-gap-double);
 
@@ -70,62 +90,120 @@ button, a{
     gap: var(--universal-gap);
 }
 
-.header-highlight{
+.header-highlight {
     color: var(--color-primary);
 }
 
-.header-text-cta-button{
+.header-text-cta-button, .sites-button__inline {
     background-color: var(--color-primary);
     color: white;
     border: none;
     padding: var(--universal-gap-half) var(--universal-gap-double)
 }
 
-.section-headline{
+.section-headline {
     margin-bottom: var(--universal-gap-double);
 }
 
-.services-content-container, .advantages-content-container{
+.services-content-container,
+.advantages-content-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
     gap: var(--universal-gap-double);
 }
 
-.facilities-content-container{
+.facilities-content-container, .sites-content-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
     gap: var(--universal-gap-double);
 }
 
-.card{
+.card {
     display: flex;
     flex-direction: column;
     justify-content: left;
     gap: var(--universal-gap);
 }
 
-.card-illustration-container{
+.card-illustration-container {
     height: 8rem;
 }
 
-.card-illustration{
+.card-illustration {
     height: 100%;
 }
 
-.card-copy{
+.card-copy,.section-copy {
     color: rgba(0, 0, 0, 0.5);
 }
 
-.card-link{
+.card-link {
     color: #F78065;
     text-decoration: none;
     font-weight: 500;
 }
 
-.card-illustration-container__facilities, .card-illustration-container__advantages{
-    height: 6rem;
+.card-link, .section-copy{
+    font-size: 1.15rem;
 }
 
-.card-illustration__facilities, .card-illustration__advantages{
-    height: 25%;
+.card-illustration-container__facilities,
+.card-illustration-container__advantages {
+    height: 4rem;
+}
+
+.card-illustration__facilities,
+.card-illustration__advantages {
+    height: 33%;
+}
+
+.card-illustration__facilities,
+.card-illustration__advantages {
+    height: 33%;
+}
+
+.card-copy__facilities,
+.card-copy__advantages,
+.card-copy__sites {
+    font-size: 0.85rem;
+}
+
+.card-illustration-container__sites{
+    height: 24rem;
+    width: 14rem;
+}
+
+
+.card-illustration__sites{
+    /* transform: translate(50%,50%); */
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.button-icon-wrapper{
+    display: inline-block;
+    height: 1.5rem;
+}
+
+.button-icon-img{
+    height: 100%;
+}
+
+.sites-section__inline{
+    display: flex;
+    flex-direction: column;
+    gap: var(--universal-gap);
+}
+
+.card__sites{
+    width: fit-content;
+}
+
+
+@media (max-width: 40rem) {
+    .card {
+        box-shadow: var(--card-box-shadow);
+        padding: 1rem;
+    }
 }
