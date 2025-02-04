@@ -50,6 +50,10 @@ function populateHeader(headline, copy, img) {
         <div class="header-image-container">
             <img src=${img} alt="hero image" class="header-image-image">
         </div>
+        <div class="floating-navbar">
+            ${createIconButton("","./assets/box.svg","floating-menu-button")}
+            ${createIconButton("","./assets/person.svg","floating-profile-button")}
+        </div>
         <div class="header-text-container">
             <h1 class="header-text-headline">${highlightText(headline, "save your time")}</h1>
             <p class="header-text-copy">${copy}</p>
@@ -59,28 +63,25 @@ function populateHeader(headline, copy, img) {
     document.querySelector('.header').innerHTML = headerTemplate;
 }
 
-function populateServices(sectionHeadline, cssSelector){
+function populateServices(sectionHeadline, cssSelector) {
     createContentSection(sectionHeadline, cssSelector);
     services.forEach(service => createCard(service.headline, service.text, service.linktext, service.illustration, cssSelector));
 }
 
-function populateFacilities(sectionHeadline, cssSelector){
+function populateFacilities(sectionHeadline, cssSelector) {
     createContentSection(sectionHeadline, cssSelector);
     facilities.options.forEach(facility => createCard(facility.headline, facility.text, "Show me more", facility.icon, cssSelector));
 }
 
-function populateSites(sectionHeadline, cssSelector){
+function populateSites(sectionHeadline, cssSelector) {
     createContentSection__InlineHeader(sectionHeadline, sites.text, sites.btnicon, cssSelector);
     sites.places.forEach(site => createCard(site.name, site.city, "Visit the site", site.img, cssSelector));
 }
 
-function populateAdvantages(sectionHeadline, cssSelector){
+function populateAdvantages(sectionHeadline, cssSelector) {
     createContentSection(sectionHeadline, cssSelector);
     advantages.forEach(advantage => createCard(advantage.headline, advantage.text, "", advantage.icon, cssSelector));
 }
-
-
-
 
 function createCard(headline, text, linktext, illustration, cssSelector) {
     let cardTemplate = `
@@ -99,12 +100,13 @@ function createCard(headline, text, linktext, illustration, cssSelector) {
 
 function populateAll() {
     populateHeader(hero.headline, hero.copy, hero.image);
-    populateServices("","services");
-    populateFacilities(facilities.headline,"facilities");
-    populateSites(sites.headline,"sites");
-    populateAdvantages("Our Advantages","advantages");
+    populateServices("", "services");
+    populateFacilities(facilities.headline, "facilities");
+    populateSites(sites.headline, "sites");
+    populateAdvantages("Our Advantages", "advantages");
 }
 
 populateAll();
+blurFloatingNavbar(0.5)
 
 

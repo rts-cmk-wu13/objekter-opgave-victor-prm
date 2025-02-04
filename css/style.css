@@ -23,7 +23,7 @@ main {
     display: flex;
     flex-direction: column;
     padding: 0 var(--universal-gap-double);
-    gap: 4rem;
+    gap: 6rem;
     padding-bottom: 8rem;
 }
 
@@ -94,7 +94,8 @@ a {
     color: var(--color-primary);
 }
 
-.header-text-cta-button, .sites-button__inline {
+.header-text-cta-button,
+.icon-button {
     background-color: var(--color-primary);
     color: white;
     border: none;
@@ -112,7 +113,8 @@ a {
     gap: var(--universal-gap-double);
 }
 
-.facilities-content-container, .sites-content-container {
+.facilities-content-container,
+.sites-content-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
     gap: var(--universal-gap-double);
@@ -133,7 +135,8 @@ a {
     height: 100%;
 }
 
-.card-copy,.section-copy {
+.card-copy,
+.section-copy {
     color: rgba(0, 0, 0, 0.5);
 }
 
@@ -143,7 +146,8 @@ a {
     font-weight: 500;
 }
 
-.card-link, .section-copy{
+.card-link,
+.section-copy {
     font-size: 1.15rem;
 }
 
@@ -168,38 +172,75 @@ a {
     font-size: 0.85rem;
 }
 
-.card-illustration-container__sites{
+.card-illustration-container__sites {
     height: 24rem;
     width: 14rem;
 }
 
 
-.card-illustration__sites{
+.card-illustration__sites {
     /* transform: translate(50%,50%); */
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
 
-.button-icon-wrapper{
+.icon-button-wrapper {
     display: inline-block;
     height: 1.5rem;
 }
 
-.button-icon-img{
+.icon-button-img {
     height: 100%;
 }
 
-.sites-section__inline{
+.sites-section__inline {
     display: flex;
     flex-direction: column;
     gap: var(--universal-gap);
 }
 
-.card__sites{
+.card__sites {
     width: fit-content;
 }
 
+.floating-navbar {
+    position: fixed;
+    height: 3rem;
+    width: calc(100% - 2*var(--universal-gap-double));
+    top: 0;
+    margin: var(--universal-gap-double);
+    z-index: 10;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--universal-gap-half);
+    border-radius: 100rem;
+}
+
+.icon-button__floating-menu-button,
+.icon-button__floating-profile-button {
+    width: var(--universal-gap-double);
+    height: var(--universal-gap-double);
+    padding: 0 0;
+    border-radius: 100rem;
+}
+
+.floating-navbar-fadein {
+    animation: blur-in 2s forwards;
+}
+@keyframes blur-in {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+        backdrop-filter: blur(0px);
+    }
+
+    to {
+        background-color: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(8px);
+    }
+}
 
 @media (max-width: 40rem) {
     .card {
