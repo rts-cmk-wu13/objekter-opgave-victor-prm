@@ -27,12 +27,12 @@ function createIconButton(buttonText, buttonIconSrc, cssSelector) {
     return "";
 }
 
-function createLinkListCard(headline, list, cssSelector){
+function createLinkListCard(headline, list, cssSelector, cssModifier){
     let contentDestination = `${cssSelector}-content-container`;
     document.querySelector(`.${contentDestination}`).innerHTML += `
-    <div class="">
-        <h4>${headline}</h4>
-        <ul>
+    <div class="linklist linklist-${cssModifier}">
+        <h4 class="linklist-header">${headline}</h4>
+        <ul class="linklist-list">
             ${createLinkList(list)}
         </ul>
     </div>`
@@ -42,11 +42,10 @@ function createLinkList(list){
     let eles = ""
     if(list){
         list.forEach(item => {
-            console.log(item.linktext)
-            eles += (`<li>${item.linktext}</li>`)
+            eles += (`<li class="linklist-item">${item.linktext}</li>`)
         })
     }
-    return eles
+    return eles;
 }
 
 function createLink(linktext, cssSelector) {

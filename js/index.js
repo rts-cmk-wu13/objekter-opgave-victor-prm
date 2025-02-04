@@ -85,9 +85,9 @@ function populateAdvantages(sectionHeadline, cssSelector) {
 
 function populateFooter(cssSelector) {
     createContentSection__InlineHeader(footer.companyText.companyName, footer.companyText.slogan, "", "", cssSelector);
-    createLinkListCard(footer.discover.headline, footer.discover.links,cssSelector);
-    createLinkListCard(footer.manager.headline, footer.manager.links,cssSelector);
-    createLinkListCard(footer.assistance.headline, footer.assistance.links,cssSelector);
+    createLinkListCard(footer.discover.headline, footer.discover.links,cssSelector, Object.keys(footer)[1]);
+    createLinkListCard(footer.manager.headline, footer.manager.links,cssSelector, Object.keys(footer)[2]);
+    createLinkListCard(footer.assistance.headline, footer.assistance.links,cssSelector, Object.keys(footer)[3]);
 }
 
 function createCard(headline, text, linktext, illustration, cssSelector) {

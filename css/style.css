@@ -238,6 +238,17 @@ a {
 .floating-navbar-fadein {
     animation: blur-in 2s forwards;
 }
+
+.linklist, .linklist-list{
+    display: flex;
+    flex-direction: column;
+    gap: var(--universal-gap-half);
+}
+
+.linklist-item{
+    list-style: none;
+}
+
 @keyframes blur-in {
     from {
         background-color: rgba(0, 0, 0, 0);
