@@ -42,15 +42,13 @@ function blurFloatingNavbar(objThreshold) {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                console.log("visible")
                 floatingNavbarElm.classList.remove("floating-navbar-fadein");
             } else {
-                console.log("invisble")
                 floatingNavbarElm.classList.add("floating-navbar-fadein");
             }
         })
     }, {threshold: objThreshold })
-    observer.observe(targetElm)
+    observer.observe(targetElm);
 }
 
 
