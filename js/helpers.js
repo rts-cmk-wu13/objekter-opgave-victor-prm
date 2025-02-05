@@ -20,6 +20,20 @@ function createContentSection__InlineHeader(sectionHeadline, sectionCopy, button
     }
 }
 
+function createCard(headline, text, linktext, illustration, cssSelector) {
+    let cardTemplate = `
+    <article class="card card__${cssSelector}">
+        <div class="card-illustration-container card-illustration-container__${cssSelector}">
+            <img src=${illustration} alt="card illustration" class="card-illustration card-illustration__${cssSelector}">
+        </div>
+        <h3 class="card-headline card-headline__${cssSelector}">${headline}</h3>
+        <p class="card-copy card-copy__${cssSelector}">${text}</p>
+       ${createLink(linktext, cssSelector)}
+    </article>
+    `
+    document.querySelector(`.${cssSelector}-content-container`).innerHTML += cardTemplate;
+}
+
 function createIconButton(buttonText, buttonIconSrc, cssSelector) {
     if(buttonText || buttonIconSrc){
         return `<button class="icon-button icon-button__${cssSelector}"><i class="icon-button-wrapper icon-button-wrapper__${cssSelector}-"><img src="${buttonIconSrc}" alt="button icon" class="icon-button-img icon-button-img__${cssSelector}-"></i>${buttonText}</button>`
@@ -67,6 +81,10 @@ function createLink(linktext, cssSelector) {
 
 function highlightText(originalStr, highlightStr) {
     return originalStr.replace(highlightStr, `<span class="header-highlight">${highlightStr}</span>`);
+}
+
+function scrollToTop(){
+    window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
 function blurFloatingNavbar(objThreshold) {

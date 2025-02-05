@@ -45,14 +45,21 @@ function populateFacilities(headline, text, icon) {
 
 
 //HERO SECTION
-function populateHeader(headline, copy, img) {
+function populateHeader() {
     let headerTemplate = `
+        <div class="floating-navbar">
+            ${createIconButton("", "./assets/box.svg", "floating-menu-button")}
+            <p class="floating-navbar-company-name" onclick="scrollToTop()">Eazy Camper</p>
+            ${createIconButton("", "./assets/person.svg", "floating-profile-button")}
+        </div>
+       `
+    document.querySelector('.header').innerHTML = headerTemplate;
+}
+
+function populateHero(headline, copy, img) {
+    let heroTemplate = `
         <div class="header-image-container">
             <img src=${img} alt="hero image" class="header-image-image">
-        </div>
-        <div class="floating-navbar">
-            ${createIconButton("","./assets/box.svg","floating-menu-button")}
-            ${createIconButton("","./assets/person.svg","floating-profile-button")}
         </div>
         <div class="header-text-container">
             <h1 class="header-text-headline">${highlightText(headline, "save your time")}</h1>
@@ -60,7 +67,7 @@ function populateHeader(headline, copy, img) {
             <button class="header-text-cta-button">Explore</button>
         </div>`
 
-    document.querySelector('.header').innerHTML = headerTemplate;
+    document.querySelector('.hero').innerHTML =  heroTemplate;
 }
 
 function populateServices(sectionHeadline, cssSelector) {
@@ -85,29 +92,15 @@ function populateAdvantages(sectionHeadline, cssSelector) {
 
 function populateFooter(cssSelector) {
     createContentSection__InlineHeader(footer.companyText.slogan, footer.companyText.companyName, "", "", cssSelector);
-    createLinkListCard(footer.discover.headline, footer.discover.links,cssSelector, Object.keys(footer)[1]);
-    createLinkListCard(footer.manager.headline, footer.manager.links,cssSelector, Object.keys(footer)[2]);
-    createLinkListCard(footer.assistance.headline, footer.assistance.links,cssSelector, Object.keys(footer)[3]);
-    createLegalSection(footer.legal.copyright, footer.legal.links,  Object.keys(footer)[4]);
-}
-
-function createCard(headline, text, linktext, illustration, cssSelector) {
-    let cardTemplate = `
-    <article class="card card__${cssSelector}">
-        <div class="card-illustration-container card-illustration-container__${cssSelector}">
-            <img src=${illustration} alt="card illustration" class="card-illustration card-illustration__${cssSelector}">
-        </div>
-        <h3 class="card-headline card-headline__${cssSelector}">${headline}</h3>
-        <p class="card-copy card-copy__${cssSelector}">${text}</p>
-       ${createLink(linktext, cssSelector)}
-    </article>
-    `
-    document.querySelector(`.${cssSelector}-content-container`).innerHTML += cardTemplate;
-
+    createLinkListCard(footer.discover.headline, footer.discover.links, cssSelector, Object.keys(footer)[1]);
+    createLinkListCard(footer.manager.headline, footer.manager.links, cssSelector, Object.keys(footer)[2]);
+    createLinkListCard(footer.assistance.headline, footer.assistance.links, cssSelector, Object.keys(footer)[3]);
+    createLegalSection(footer.legal.copyright, footer.legal.links, Object.keys(footer)[4]);
 }
 
 function populateAll() {
-    populateHeader(hero.headline, hero.copy, hero.image);
+    populateHeader();
+    populateHero(hero.headline, hero.copy, hero.image);
     populateServices("", "services");
     populateFacilities(facilities.headline, "facilities");
     populateSites("sites");
@@ -115,7 +108,18 @@ function populateAll() {
     populateFooter("footer");
 }
 
+
 populateAll();
-blurFloatingNavbar(0.5)
+blurFloatingNavbar(0.5);
+
+/* 
+let cards = document.querySelectorAll(".card");
+console.log(cards);
+
+cards.forEach((card, i) => {
+    card.addEventListener("click", function () {
+        console.log("Hello World " + i);
+    })
+}) */
 
 
